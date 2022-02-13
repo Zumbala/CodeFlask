@@ -182,6 +182,8 @@ export default class CodeFlask {
       this.elPre.style.transform = `translate3d(-${e.target.scrollLeft}px, -${e.target.scrollTop}px, 0)`
       if (this.elLineNumbers) {
         this.elLineNumbers.style.transform = `translate3d(0, -${e.target.scrollTop}px, 0)`
+        // missing width change when moving the viewport left
+        this.elPre.style.width = this.elPre.clientWidth + e.target.scrollLeft + "px"
       }
     })
   }
